@@ -1,6 +1,20 @@
-const buttons = document.querySelectorAll('.hover-button');
+const whiteButtons = document.querySelectorAll('.hover-button-white');
 
-buttons.forEach((btn) => {
+whiteButtons.forEach((btn) => {
+  btn.addEventListener('mouseenter', () => {
+    if (btn.classList.contains('is-animating')) return;
+
+    btn.classList.add('is-animating');
+
+    setTimeout(() => {
+      btn.classList.remove('is-animating');
+    }, 500);
+  });
+});
+
+const blackButtons = document.querySelectorAll('.hover-button-black');
+
+blackButtons.forEach((btn) => {
   btn.addEventListener('mouseenter', () => {
     if (btn.classList.contains('is-animating')) return;
 

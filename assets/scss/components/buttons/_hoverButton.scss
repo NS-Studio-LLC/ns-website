@@ -1,4 +1,4 @@
-.hover-button {
+.hover-button-white {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -11,6 +11,7 @@
     font-weight: 500;
     cursor: pointer;
     overflow: hidden;
+    width: fit-content;
 
     transition:
         color 0.3s ease,
@@ -55,6 +56,77 @@
 
     &.is-animating {
         color: #000;
+        background-color: #fff;
+
+        .circle {
+            transform: translateY(-50%) scale(40);
+        }
+
+        img {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+.hover-button-black {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    overflow: hidden;
+    width: fit-content;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.15s ease;
+
+    &:active {
+        transform: scale(0.97);
+    }
+
+    .circle {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background-color: #000;
+
+        transform: translateY(-50%);
+        transform-origin: center;
+        z-index: 1;
+        transition: transform 1s ease;
+    }
+
+    .label {
+        position: relative;
+        z-index: 9;
+        margin-left: 24px;
+    }
+
+    img {
+        width: 24px;
+        margin-left: 8px;
+        opacity: 0;
+        transform: translateX(12px);
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    &.is-animating {
+        color: #fff;
         background-color: #fff;
 
         .circle {
