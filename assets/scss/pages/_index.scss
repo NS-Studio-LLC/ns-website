@@ -51,6 +51,12 @@
             .hero-description {
                 margin-top: 16px;
                 font-size: 16px;
+
+                .word {
+                    opacity: 0;
+                    animation: fadeInWord 0.4s ease forwards;
+                    animation-delay: calc(var(--word-index) * .1s);
+                }
             }
 
             .hover-button-white {
@@ -82,7 +88,13 @@
                 font-weight: 550;
                 line-height: 120%;
 
-                span {
+                .word {
+                    opacity: 0;
+                    animation: fadeInWord 0.4s ease forwards;
+                    animation-delay: calc(var(--word-index) * .1s);
+                }
+
+                .brand-highlight {
                     color: #83FAFC;
                     font-size: 32px;
                     font-style: normal;
@@ -165,11 +177,95 @@
             align-items: center;
         }
 
-        .project-cards{
+        .project-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 32px;
         }
+    }
+
+    .services-offer {
+        padding: 32px 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .section-header {
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+
+    .our-partners {
+        padding: 70px 50px;
+        background-color: #000;
+
+        .section-title {
+            color: #FFF;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        .section-text {
+            color: #FFF;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 550;
+            line-height: 120%;
+            margin-top: 16px;
+
+            .word {
+                opacity: 0;
+                animation: fadeInWord 0.4s ease forwards;
+                animation-delay: calc(var(--word-index) * .1s);
+            }
+
+            .brand-highlight {
+                color: #83FAFC;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 550;
+                line-height: 120%;
+            }
+        }
+
+        .hover-button {
+            margin-top: 32px;
+        }
+
+        .brand-strip {
+            width: 100%;
+            overflow: hidden;
+            padding: 24px 0;
+            background: #000;
+            margin-top: 72px;
+            display: flex;
+            flex-direction: column;
+            gap: 42px;
+            
+            .track {
+                display: inline-flex;
+                align-items: center;
+                gap: 18px;
+                animation: brandScroll 10s linear infinite;
+            }
+
+            img {
+                height: 40px;
+                width: auto;
+                object-fit: contain;
+                filter: grayscale(1);
+                opacity: 0.8;
+            }
+
+            &:hover .track {
+                animation-play-state: paused;
+            }
+        }
+
     }
 
     @keyframes heroLineIn {
@@ -193,6 +289,28 @@
         to {
             opacity: 1;
             transform: translateX(-30px);
+        }
+    }
+
+    @keyframes fadeInWord {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes brandScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
         }
     }
 

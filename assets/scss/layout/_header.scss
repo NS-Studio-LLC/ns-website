@@ -13,12 +13,46 @@
         align-items: center;
         gap: 10px;
 
-        a {
+        .nav-link {
+            position: relative;
             padding: 12px;
-            color: #000;
             font-size: 14px;
             font-weight: 500;
+            color: #000;
             text-decoration: none;
+            overflow: hidden;
+
+            .nav-link__inner {
+                position: relative;
+                display: inline-block;
+                z-index: 1;
+                transform: translateY(0);
+                transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+            }
+
+            &::after {
+                content: attr(data-text);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -150%);
+                white-space: nowrap;
+                color: #53A5A6;
+                opacity: 0;
+                transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+            }
+
+            &:hover {
+                .nav-link__inner {
+                    opacity: 0;
+                    transform: translateY(150%);
+                }
+
+                &::after {
+                    opacity: 1;
+                    transform: translate(-50%, -50%);
+                }
+            }
         }
 
     }
