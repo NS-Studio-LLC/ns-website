@@ -1,113 +1,164 @@
 .footer-container {
     position: relative;
-    padding: 70px 50px;
     background-color: #000;
+    padding: 70px 50px 50px 50px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 32px;
+    overflow: hidden;
 
-    .dashed-box {
-        padding: 16px;
-        border: 1px dashed #5E5E5E;
-        width: fit-content;
-        position: relative;
-        height: fit-content;
-
-        &__corner {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 0.2px solid #E9E9E9;
-            background: #000;
-        }
-
-        &__corner--tl {
-            top: -10px;
-            left: -10px;
-        }
-
-        &__corner--tr {
-            top: -10px;
-            right: -10px;
-        }
-
-        &__corner--bl {
-            bottom: -10px;
-            left: -10px;
-        }
-
-        &__corner--br {
-            bottom: -10px;
-            right: -10px;
-        }
-
-        &__title {
-            display: flex;
-            position: relative;
-
-            span {
-                color: #FFF;
-                font-size: 32px;
-                font-style: normal;
-                font-weight: 550;
-                line-height: 120%;
-            }
-
-
-            .dot-img {
-                width: 150px;
-                height: 170px;
-                aspect-ratio: 25.00/25.31;
-                position: absolute;
-                left: 360px;
-                top: -20px;
-
-            }
-
-        }
-
-        &-description {
-            color: rgba(255, 255, 255, 0.70);
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-        }
-    }
-
-    .footer-infos {
+    .footer-top {
         display: flex;
+        justify-content: space-between;
         gap: 50px;
 
-        .info-div {
+        .left {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 32px;
 
-            .page-routes {
-                a {
+            .dashed-box {
+                padding: 16px;
+                border: 1px dashed #5E5E5E;
+                position: relative;
+                height: fit-content;
+
+                &__corner {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    border: 0.2px solid #E9E9E9;
+                    background: #000;
+                }
+
+                &__corner--tl {
+                    top: -10px;
+                    left: -10px;
+                }
+
+                &__corner--tr {
+                    top: -10px;
+                    right: -10px;
+                }
+
+                &__corner--bl {
+                    bottom: -10px;
+                    left: -10px;
+                }
+
+                &__corner--br {
+                    bottom: -10px;
+                    right: -10px;
+                }
+
+                .dashed-header {
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+
+                    .dashed-title {
+                        display: flex;
+                        position: relative;
+
+                        span {
+                            color: #FFF;
+                            font-size: 32px;
+                            font-style: normal;
+                            font-weight: 550;
+                            line-height: 120%;
+                        }
+
+
+                        .dot-img {
+                            width: 150px;
+                            height: 170px;
+                            aspect-ratio: 25.00/25.31;
+                            position: absolute;
+                            left: 360px;
+                            top: -20px;
+
+                        }
+
+                    }
+
+                    .dashed-description {
+                        color: rgba(255, 255, 255, 0.70);
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+
+
+            }
+
+            .actions {
+                display: flex;
+                gap: 16px;
+
+                .discover-projects {
+                    padding: 12px;
+                    color: #FFF;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
                     text-decoration: none;
                 }
             }
+        }
 
-            .social-media-routes{
-                a{
-                    color: red;
-                }
-            }
-            
+        .right {
 
-            .title {
-                color: #FFF;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: normal;
-            }
-
-            .infos {
+            .footer-infos {
                 display: flex;
-                flex-direction: column;
-                gap: 8px;
+                gap: 50px;
+
+                .contact-infos {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 50px;
+                }
+
+                .page-routes {
+
+                    a {
+                        text-decoration: none;
+                        text-wrap: nowrap;
+                    }
+                }
+
+                .social-media {
+
+                    a {
+                        display: flex;
+                        gap: 8px;
+                        text-wrap: nowrap;
+                    }
+
+                }
+
+                .flex-div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+
+                .info-title {
+                    color: #FFF;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+
+                .infos {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                }
 
                 .info {
                     color: rgba(255, 255, 255, 0.70);
@@ -116,17 +167,64 @@
                     font-weight: 400;
                     line-height: normal;
                 }
+
             }
-
-
-        }
-
-        .contact-infos {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-
         }
 
     }
+
+    .privacy-and-policy {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 24px;
+
+        span {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        b {
+            color: rgba(255, 255, 255, 0.70);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+
+    .gradient-layer-left {
+        width: 838.235px;
+        height: 838.235px;
+        position: absolute;
+        bottom: -800px;
+        border-radius: 50%;
+        background: rgba(83, 165, 166, 0.64);
+        filter: blur(209.55882263183594px);
+    }
+
+    .gradient-layer-right {
+        width: 465px;
+        height: 465px;
+        position: absolute;
+        right: -56px;
+        bottom: 800px;
+        border-radius: 50%;
+        background: rgba(83, 165, 166, 0.44);
+        filter: blur(209.55882263183594px);
+    }
+
 }
