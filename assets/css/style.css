@@ -801,6 +801,9 @@ body {
   align-items: center;
   gap: 16px;
 }
+.offcanvas .offcanvas-body .offcanvas-actions .hover-button-white {
+  display: inline-block;
+}
 .offcanvas .offcanvas-body .offcanvas-actions .view-projects {
   color: #000;
   font-size: 14px;
