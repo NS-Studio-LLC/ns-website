@@ -6,12 +6,24 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.section-header .section-title {
+p {
+  margin-bottom: 0;
+}
+
+.section-title {
   color: #000;
   font-size: 32px;
   font-style: normal;
   font-weight: 550;
   line-height: 120%;
+}
+
+.section-description {
+  color: #7E7E7E;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
 }
 
 .header-container {
@@ -599,6 +611,8 @@ body {
   padding: 24px;
   border: 1px solid #E9E9E9;
   background: #FFF;
+  cursor: pointer;
+  padding: 10px;
 }
 .what-we-do-card .card-icon {
   margin-bottom: 16px;
@@ -1196,44 +1210,64 @@ body {
     transform: translateX(-100%);
   }
 }
-.corner-logo {
-  width: 47px;
-  height: 47px;
+.portfolio-container .hero-section {
+  padding: 100px 60px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
-.corner-logo .corner {
-  transform-box: fill-box;
-  transform-origin: center;
-  transform: scale(1);
-  animation: cornerPulse 2s ease-in-out infinite;
+@media only screen and (max-width: 768px) {
+  .portfolio-container .hero-section {
+    padding: 50px 16px 32px 16px;
+  }
 }
-.corner-logo .corner--tl {
-  animation-delay: 0s;
+.portfolio-container .hero-section .hero-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
-.corner-logo .corner--tr {
-  animation-delay: 0.5s;
+.portfolio-container .hero-section .badgets {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
 }
-.corner-logo .corner--br {
-  animation-delay: 1s;
+@media only screen and (max-width: 768px) {
+  .portfolio-container .hero-section .badgets {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
-.corner-logo .corner--bl {
-  animation-delay: 1.5s;
+.portfolio-container .hero-section .badgets .badget {
+  padding: 10px 16px;
+  border-radius: 99px;
+  background: #E9E9E9;
+  color: #000;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+.portfolio-container .project-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 0 50px 100px 50px;
+}
+@media only screen and (max-width: 768px) {
+  .portfolio-container .project-cards {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 16px 50px 16px;
+  }
 }
 
-@keyframes cornerPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  15% {
-    transform: scale(1.4);
-    opacity: 1;
-  }
-  30% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
+.icon {
+  width: 100px;
+  height: 100px;
+}
+.icon img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background-color: green;
 }/*# sourceMappingURL=style.css.map */

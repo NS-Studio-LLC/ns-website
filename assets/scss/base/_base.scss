@@ -7,13 +7,22 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.section-header {
+p {
+    margin-bottom: 0;
+}
 
-    .section-title {
-        color: #000;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 550;
-        line-height: 120%;
-    }
+.section-title {
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 550;
+    line-height: 120%;
+}
+
+.section-description {
+    color: #7E7E7E;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
 }
