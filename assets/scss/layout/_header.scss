@@ -58,9 +58,10 @@
         }
     }
 
-    @include mq(tablet-portrait-up) {
+    @include mq(tablet-landscape-up) {
+        padding: 12px;
 
-        .hover-button-white{
+        .hover-button-black{
             display: none;
         }
 

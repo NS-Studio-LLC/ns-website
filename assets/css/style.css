@@ -80,8 +80,11 @@ a {
   opacity: 1;
   transform: translate(-50%, -50%);
 }
-@media only screen and (max-width: 768px) {
-  .header-container .hover-button-white {
+@media only screen and (max-width: 1024px) {
+  .header-container {
+    padding: 12px;
+  }
+  .header-container .hover-button-black {
     display: none;
   }
   .header-container .header-navs {
@@ -314,31 +317,28 @@ a {
 }
 
 /* ------------------ ANİMASİYALAR ------------------ */
-/* Circle: böyü → qal → kiçilt */
-@keyframes circlePulse {
+/* BLACK button circle: ağ → gradient → ağ */
+@keyframes circlePulseBlack {
   0% {
     width: 10px;
     height: 10px;
     left: 16px;
     border-radius: 50%;
+    background: white;
   }
-  20% {
-    width: 100%;
-    height: 100%;
+  20%, 80% {
+    width: 110%;
+    height: 110%;
     left: 0;
     border-radius: 5px;
-  }
-  80% {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    border-radius: 5px;
+    background: linear-gradient(96deg, #60adac -1.27%, #ac5a7e 48%, #bdd9b4 99.19%);
   }
   100% {
     width: 10px;
     height: 10px;
     left: 16px;
     border-radius: 50%;
+    background: white;
   }
 }
 /* Icon: çıx → qal → geri gizlən */
@@ -365,16 +365,16 @@ a {
   0% {
     color: #000;
   }
-  20% {
-    color: #fff;
-  }
-  80% {
+  20%, 80% {
     color: #fff;
   }
   100% {
     color: #000;
   }
 }
+/* (İstəsən white circle üçün ayrıca scale animasiyası da yaza bilərsən,
+   amma hazırda sən `circlePulse`-dan istifadə edirdin deyə saxlaya bilərik.
+   Yoxdursa, white üçün də circlePulseBlack istifadə edə bilərsən.) */
 /* ------------------ BLACK BUTTON ------------------ */
 .hover-button-black {
   padding: 12px;
@@ -400,7 +400,7 @@ a {
 .hover-button-black .circle {
   width: 10px;
   height: 10px;
-  background: linear-gradient(96deg, #60adac -1.27%, #ac5a7e 48%, #bdd9b4 99.19%);
+  background: white;
   border-radius: 50%;
   position: absolute;
   left: 16px;
@@ -420,7 +420,8 @@ a {
   border: none;
 }
 .hover-button-black:hover .circle {
-  animation: circlePulse 2s ease-out forwards;
+  /* yalnız animasiya – rəngi hover-da yazmırıq artıq */
+  animation: circlePulseBlack 2s ease-out forwards;
 }
 .hover-button-black:hover img {
   animation: iconPulse 2s ease-out forwards;
@@ -440,7 +441,6 @@ a {
 }
 .hover-button-white .label,
 .hover-button-white span {
-  /* əgər HTML-də .label class-ı istifadə edirsənsə uyğun olsun deyə */
   color: #000;
   font-size: 14px;
   font-style: normal;
@@ -471,14 +471,14 @@ a {
 }
 .hover-button-white:hover {
   border: none;
-  /* label rəngi də circle kimi “pulse” etsin */
+  /* istəsən bura da circlePulseBlack yox, ayrıca yazdığın animasiyanı verə bilərsən */
 }
 .hover-button-white:hover .label,
 .hover-button-white:hover span {
   animation: labelPulseWhite 2s ease-out forwards;
 }
 .hover-button-white:hover .circle {
-  animation: circlePulse 2s ease-out forwards;
+  animation: circlePulseBlack 2s ease-out forwards;
 }
 .hover-button-white:hover img {
   animation: iconPulse 2s ease-out forwards;
@@ -552,9 +552,9 @@ a {
   line-height: 140%;
 }
 .project-card .card-infos .card-badgets {
-  display: flex;
-  align-items: center;
   gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .project-card .card-infos .card-badgets .badget {
   padding: 6px 12px;
@@ -567,12 +567,7 @@ a {
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
-}
-@media only screen and (max-width: 768px) {
-  .project-card .card-infos .card-badgets {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+  text-wrap: nowrap;
 }
 .project-card:hover .card-img img {
   transform: scale(1.05);
@@ -825,7 +820,7 @@ a {
   background-color: transparent;
   border: none;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .btn-offcanvas {
     display: inline-block;
   }
@@ -878,6 +873,27 @@ a {
   line-height: normal;
   padding: 12px;
   text-decoration: none;
+}
+
+.partner-card {
+  padding: 35.064px 47.746px 34.643px 48px;
+  border-radius: 12px;
+  background: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.partner-card .partner-img {
+  width: 159.454px;
+  height: 90.293px;
+  aspect-ratio: 159.45/90.29;
+}
+.partner-card .partner-img img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 .homepage-container .hero-section {
@@ -935,7 +951,7 @@ a {
   animation: fadeInWord 0.4s ease forwards;
   animation-delay: calc(var(--word-index) * 0.1s);
 }
-.homepage-container .hero-section .hero-top .hover-button-white {
+.homepage-container .hero-section .hero-top .hover-button-black {
   margin-top: 32px;
 }
 .homepage-container .hero-section .hero-video-div {
@@ -1096,14 +1112,11 @@ a {
 .our-partners .section-title {
   color: #FFF;
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 }
 .our-partners .section-text {
   color: #FFF;
   font-size: 32px;
-  font-style: normal;
   font-weight: 550;
   line-height: 120%;
   margin-top: 16px;
@@ -1116,7 +1129,6 @@ a {
 .our-partners .section-text .brand-highlight {
   color: #83FAFC;
   font-size: 32px;
-  font-style: normal;
   font-weight: 550;
   line-height: 120%;
 }
@@ -1137,7 +1149,11 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 18px;
-  animation: brandScroll 10s linear infinite;
+  will-change: transform;
+  animation: brandScrollLeft 10s linear infinite;
+}
+.our-partners .brand-strip .track:nth-child(2) {
+  animation-name: brandScrollRight;
 }
 .our-partners .brand-strip img {
   height: 40px;
@@ -1254,12 +1270,20 @@ a {
     transform: translateY(0);
   }
 }
-@keyframes brandScroll {
+@keyframes brandScrollLeft {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100%);
+  }
+}
+@keyframes brandScrollRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 .portfolio-container .hero-section {
@@ -1320,4 +1344,34 @@ a {
      object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+.partners-container .partners-hero {
+  padding: 100px 50px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media only screen and (max-width: 768px) {
+  .partners-container .partners-hero {
+    padding: 50px 16px;
+  }
+}
+.partners-container .partner-cards {
+  padding: 0 50px 100px 50px;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media only screen and (max-width: 768px) {
+  .partners-container .partner-cards {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 16px 24px 16px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .partners-container .partner-cards {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0px 16px 24px 16px;
+  }
 }/*# sourceMappingURL=style.css.map */

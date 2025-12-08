@@ -6,7 +6,7 @@
     background-color: transparent;
     border: none;
     
-    @include mq(tablet-portrait-up){
+    @include mq(tablet-landscape-up){
         display: inline-block;
     }
 }

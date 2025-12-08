@@ -1,170 +1,27 @@
-// .hover-button-white {
-//     position: relative;
-//     display: inline-flex;
-//     align-items: center;
-//     gap: 10px;
-//     border-radius: 6px;
-//     padding: 12px;
-//     background-color: #000;
-//     color: #fff;
-//     font-size: 14px;
-//     font-weight: 500;
-//     cursor: pointer;
-//     overflow: hidden;
-//     width: fit-content;
-//     text-decoration: none;
-
-//     transition:
-//         color 0.3s ease,
-//         border-color 0.3s ease,
-//         background-color 0.3s ease,
-//         transform 0.15s ease;
-
-//     &:active {
-//         transform: scale(0.97);
-//     }
-
-//     .circle {
-//         position: absolute;
-//         left: 16px;
-//         top: 50%;
-//         width: 16px;
-//         height: 16px;
-//         border-radius: 999px;
-//         background: linear-gradient(96deg, #60ADAC -1.27%, #AC5A7E 48%, #BDD9B4 99.19%);
-//         transform: translateY(-50%);
-//         transform-origin: center;
-//         z-index: 1;
-//         transition: transform 1s ease;
-//     }
-
-//     .label {
-//         position: relative;
-//         z-index: 9;
-//         margin-left: 24px;
-//     }
-
-//     img {
-//         width: 24px;
-//         margin-left: 8px;
-//         opacity: 0;
-//         transform: translateX(12px);
-//         transition:
-//             opacity 0.3s ease,
-//             transform 0.3s ease;
-//     }
-
-//     &.is-animating {
-//         color: #000; 
-//         background-color: #fff;
-
-//         .circle {
-//             transform: scale(23);
-//         }
-
-//         img {
-//             opacity: 1;
-//             transform: translateX(0);
-//         }
-//     }
-// }
-
-// .hover-button-black {
-//     position: relative;
-//     display: inline-flex;
-//     align-items: center;
-//     gap: 10px;
-//     border-radius: 6px;
-//     padding: 12px;
-//     background-color: #fff;
-//     color: #000;
-//     font-size: 14px;
-//     font-weight: 500;
-//     cursor: pointer;
-//     overflow: hidden;
-//     width: fit-content;
-//     text-decoration: none;
-
-//     transition:
-//         color 0.3s ease,
-//         border-color 0.3s ease,
-//         background-color 0.3s ease,
-//         transform 0.15s ease;
-
-//     &:active {
-//         transform: scale(0.97);
-//     }
-
-//     .circle {
-//         position: absolute;
-//         left: 16px;
-//         top: 50%;
-//         width: 8px;
-//         height: 8px;
-//         border-radius: 999px;
-//         background-color: #000;
-
-//         transform: translateY(-50%);
-//         transform-origin: center;
-//         z-index: 1;
-//         transition: transform 1s ease;
-//     }
-
-//     .label {
-//         position: relative;
-//         z-index: 9;
-//         margin-left: 24px;
-//     }
-
-//     img {
-//         width: 24px;
-//         margin-left: 8px;
-//         opacity: 0;
-//         transform: translateX(12px);
-//         transition:
-//             opacity 0.3s ease,
-//             transform 0.3s ease;
-//     }
-
-//     &.is-animating {
-//         color: #fff;
-//         background-color: #fff;
-
-//         .circle {
-//             transform: translateY(-50%) scale(40);
-//         }
-
-//         img {
-//             opacity: 1;
-//             transform: translateX(0);
-//         }
-//     }
-// }
-
-
 /* ------------------ ANİMASİYALAR ------------------ */
 
-/* Circle: böyü → qal → kiçilt */
-@keyframes circlePulse {
+/* BLACK button circle: ağ → gradient → ağ */
+@keyframes circlePulseBlack {
   0% {
     width: 10px;
     height: 10px;
     left: 16px;
     border-radius: 50%;
+    background: white;
   }
 
-  20% {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    border-radius: 5px;
-  }
-
+  20%,
   80% {
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     left: 0;
     border-radius: 5px;
+    background: linear-gradient(
+      96deg,
+      #60adac -1.27%,
+      #ac5a7e 48%,
+      #bdd9b4 99.19%
+    );
   }
 
   100% {
@@ -172,6 +29,7 @@
     height: 10px;
     left: 16px;
     border-radius: 50%;
+    background: white;
   }
 }
 
@@ -204,10 +62,7 @@
     color: #000;
   }
 
-  20% {
-    color: #fff;
-  }
-
+  20%,
   80% {
     color: #fff;
   }
@@ -216,6 +71,11 @@
     color: #000;
   }
 }
+
+/* (İstəsən white circle üçün ayrıca scale animasiyası da yaza bilərsən,
+   amma hazırda sən `circlePulse`-dan istifadə edirdin deyə saxlaya bilərik.
+   Yoxdursa, white üçün də circlePulseBlack istifadə edə bilərsən.) */
+
 
 /* ------------------ BLACK BUTTON ------------------ */
 
@@ -243,12 +103,7 @@
   .circle {
     width: 10px;
     height: 10px;
-    background: linear-gradient(
-      96deg,
-      #60adac -1.27%,
-      #ac5a7e 48%,
-      #bdd9b4 99.19%
-    );
+    background: white; // başlanğıc: ağ
     border-radius: 50%;
     position: absolute;
     left: 16px;
@@ -270,7 +125,8 @@
     border: none;
 
     .circle {
-      animation: circlePulse 2s ease-out forwards;
+      /* yalnız animasiya – rəngi hover-da yazmırıq artıq */
+      animation: circlePulseBlack 2s ease-out forwards;
     }
 
     img {
@@ -293,7 +149,6 @@
 
   .label,
   span {
-    /* əgər HTML-də .label class-ı istifadə edirsənsə uyğun olsun deyə */
     color: #000;
     font-size: 14px;
     font-style: normal;
@@ -333,14 +188,14 @@
   &:hover {
     border: none;
 
-    /* label rəngi də circle kimi “pulse” etsin */
     .label,
     span {
       animation: labelPulseWhite 2s ease-out forwards;
     }
-   
+
+    /* istəsən bura da circlePulseBlack yox, ayrıca yazdığın animasiyanı verə bilərsən */
     .circle {
-      animation: circlePulse 2s ease-out forwards;
+      animation: circlePulseBlack 2s ease-out forwards;
     }
 
     img {

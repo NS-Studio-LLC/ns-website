@@ -65,7 +65,7 @@
                 }
             }
 
-            .hover-button-white {
+            .hover-button-black {
                 margin-top: 32px;
             }
         }
@@ -211,6 +211,7 @@
         @include mq(tablet-portrait-up) {
             grid-template-columns: repeat(1, 1fr);
         }
+
     }
 }
 
@@ -242,15 +243,12 @@
     .section-title {
         color: #FFF;
         font-size: 14px;
-        font-style: normal;
         font-weight: 500;
-        line-height: normal;
     }
 
     .section-text {
         color: #FFF;
         font-size: 32px;
-        font-style: normal;
         font-weight: 550;
         line-height: 120%;
         margin-top: 16px;
@@ -264,7 +262,6 @@
         .brand-highlight {
             color: #83FAFC;
             font-size: 32px;
-            font-style: normal;
             font-weight: 550;
             line-height: 120%;
         }
@@ -288,7 +285,12 @@
             display: inline-flex;
             align-items: center;
             gap: 18px;
-            animation: brandScroll 10s linear infinite;
+            will-change: transform;
+            animation: brandScrollLeft 10s linear infinite;
+        }
+
+        .track:nth-child(2) {
+            animation-name: brandScrollRight;
         }
 
         img {
@@ -303,7 +305,6 @@
             animation-play-state: paused;
         }
     }
-
 }
 
 .what-we-do {
@@ -388,7 +389,6 @@
 }
 
 
-
 @keyframes heroLineIn {
     from {
         opacity: 0;
@@ -425,12 +425,22 @@
     }
 }
 
-@keyframes brandScroll {
+@keyframes brandScrollLeft {
     0% {
         transform: translateX(0);
     }
 
     100% {
         transform: translateX(-100%);
+    }
+}
+
+@keyframes brandScrollRight {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }

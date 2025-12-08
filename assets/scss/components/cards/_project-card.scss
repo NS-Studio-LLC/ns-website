@@ -72,9 +72,11 @@
         }
 
         .card-badgets {
-            display: flex;
-            align-items: center;
             gap: 12px;
+            // display: grid;
+            // grid-template-columns: repeat(4, 1fr);
+            display: flex;
+            flex-wrap: wrap;
 
             .badget {
                 padding: 6px 12px;
@@ -87,13 +89,21 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: 120%;
+                    text-wrap: nowrap;
                 }
             }
 
-            @include mq(tablet-portrait-up) {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-            }
+            // @include mq(tablet-landscape-up) {
+            //     grid-template-columns: repeat(4, 1fr);
+            // }
+
+            // @include mq(tablet-portrait-up) {
+            //     grid-template-columns: repeat(3, 1fr);
+            // }
+
+            // @include mq(phone-only) {
+            //     grid-template-columns: repeat(2, 1fr);
+            // }
         }
     }
 
