@@ -14,6 +14,22 @@ a {
   text-decoration: none;
 }
 
+input {
+  border: none;
+  outline: none;
+}
+
+select {
+  outline: none;
+  border: none;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: none;
+}
+
 .section-title {
   color: #000;
   font-size: 32px;
@@ -907,6 +923,73 @@ a {
   height: 100%;
 }
 
+.input-with-label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #CECECE;
+}
+.input-with-label label {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: uppercase;
+}
+.input-with-label input {
+  color: #7E7E7E;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.select-with-label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #CECECE;
+}
+.select-with-label label {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: uppercase;
+}
+.select-with-label select {
+  color: #7E7E7E;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.textarea-with-label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.textarea-with-label label {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: uppercase;
+}
+.textarea-with-label textarea {
+  color: #7E7E7E;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+
 .homepage-container .hero-section {
   overflow: hidden;
 }
@@ -1394,11 +1477,182 @@ a {
   padding: 100px 50px 50px 50px;
   display: flex;
 }
+@media only screen and (max-width: 768px) {
+  .contact-us-container .form-container {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
 .contact-us-container .form-container .our-connection-infos {
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+@media only screen and (max-width: 768px) {
+  .contact-us-container .form-container .our-connection-infos {
+    width: 100%;
+  }
 }
 .contact-us-container .form-container .our-connection-infos .infos-header {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.contact-us-container .form-container .our-connection-infos .infos-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.contact-us-container .form-container .our-connection-infos .infos-body .info-div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-us-container .form-container .our-connection-infos .infos-body .info-div .label {
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  text-transform: uppercase;
+}
+.contact-us-container .form-container .our-connection-infos .infos-body .info-div .value {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.contact-us-container .form-container .connect-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media only screen and (max-width: 768px) {
+  .contact-us-container .form-container .connect-form {
+    width: 100%;
+  }
+}
+.contact-us-container .form-container .connect-form .input-twice {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.contact-us-container .form-container .connect-form .input-twice div {
+  width: 50%;
+}
+
+.blogs-container .blogs-hero {
+  padding: 100px 50px 70px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.blogs-container .blogs-hero p {
+  width: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .blogs-container .blogs-hero {
+    padding: 50px 16px;
+  }
+  .blogs-container .blogs-hero p {
+    width: 100%;
+  }
+}
+.blogs-container .most-recent-blogs {
+  padding: 0 50px 100px 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  row-gap: 50px;
+}
+@media only screen and (max-width: 768px) {
+  .blogs-container .most-recent-blogs {
+    padding: 0 16px 50px 16px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.blog-details-container .blog-image {
+  height: 618px;
+}
+.blog-details-container .blog-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .blog-details-container .blog-image {
+    max-height: 290px;
+  }
+}
+.blog-details-container .blog-infos {
+  display: flex;
+  gap: 32px;
+  padding: 50px;
+}
+.blog-details-container .blog-infos .blog-title {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 50%;
+}
+.blog-details-container .blog-infos .blog-description {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 50%;
+}
+.blog-details-container .blog-infos .blog-description .share {
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 768px) {
+  .blog-details-container .blog-infos .blog-description .share {
+    flex-direction: column;
+  }
+}
+.blog-details-container .blog-infos .blog-description .share .label {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 140%;
+}
+.blog-details-container .blog-infos .blog-description .share .actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.blog-details-container .blog-infos .blog-description .share .actions .action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+}
+@media only screen and (max-width: 768px) {
+  .blog-details-container .blog-infos {
+    flex-direction: column;
+    padding: 24px 16px 50px 16px;
+  }
+  .blog-details-container .blog-infos .blog-title {
+    width: 100%;
+  }
+  .blog-details-container .blog-infos .blog-description {
+    width: 100%;
+  }
 }/*# sourceMappingURL=style.css.map */

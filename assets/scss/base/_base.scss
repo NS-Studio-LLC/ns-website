@@ -11,8 +11,24 @@ p {
     margin-bottom: 0;
 }
 
-a{
+a {
     text-decoration: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+select{
+    outline: none;
+    border: none;
+}
+
+textarea{
+    resize: none;
+    outline: none;
+    border: none;
 }
 
 .section-title {

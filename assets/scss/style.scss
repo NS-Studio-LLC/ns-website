@@ -18,6 +18,9 @@
 @use './components/cards/accordion';
 @use './components/cards/offcanvas';
 @use './components/cards/partner-card';
+@use './components/inputs/inputWithLabel';
+@use './components/inputs/selectWithLabel';
+@use './components/inputs/textareaWithLabel';
 
 // pages
 @use './pages/index';
@@ -25,6 +28,8 @@
 @use './pages/portfolioDetails';
 @use './pages/partners';
 @use './pages/contactUs';
+@use './pages/blogs';
+@use './pages/blogDetails';
 
 
 @use './pages/test';

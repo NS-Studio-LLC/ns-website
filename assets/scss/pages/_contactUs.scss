@@ -1,22 +1,84 @@
+@use '../abstracts/mixins' as *;
+
 .contact-us-container {
 
     .form-container {
         padding: 100px 50px 50px 50px;
         display: flex;
 
+        @include mq(tablet-portrait-up) {
+            flex-direction: column;
+            gap: 32px;
+        }
 
         .our-connection-infos {
             width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
 
-            .infos-header{
+            @include mq(tablet-portrait-up) {
+                width: 100%;
+            }
+
+            .infos-header {
                 display: flex;
                 flex-direction: column;
                 gap: 16px;
             }
 
-            .infos-body{
-                
+            .infos-body {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+
+                .info-div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+
+                    .label {
+                        color: #000;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 140%;
+                        text-transform: uppercase;
+                    }
+
+                    .value {
+                        color: rgba(0, 0, 0, 0.70);
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
             }
+        }
+
+        .connect-form {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+
+            @include mq(tablet-portrait-up) {
+                width: 100%;
+            }
+
+            .input-twice {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+
+                div{
+                    width: 50%;
+                }
+            }
+
+
+
         }
     }
 

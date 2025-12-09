@@ -1,0 +1,92 @@
+@use '../abstracts/mixins' as *;
+
+.blog-details-container {
+
+    .blog-image {
+        height: 618px;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        @include mq(tablet-portrait-up) {
+            max-height: 290px;
+        }
+    }
+
+    .blog-infos {
+        display: flex;
+        gap: 32px;
+        padding: 50px;
+
+        .blog-title {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 50%;
+        }
+
+        .blog-description {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            width: 50%;
+
+            .share {
+                display: flex;
+                justify-content: space-between;
+
+                @include mq(tablet-portrait-up){
+                    flex-direction: column;
+                }
+
+                .label {
+                    color: rgba(0, 0, 0, 0.70);
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 550;
+                    line-height: 140%;
+                }
+
+                .actions {
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+
+                    .action {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        color: #000;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                        text-decoration-line: underline;
+                        text-decoration-style: solid;
+                        text-decoration-skip-ink: auto;
+                        text-decoration-thickness: auto;
+                        text-underline-offset: auto;
+                    }
+                }
+
+            }
+        }
+
+        @include mq(tablet-portrait-up) {
+            flex-direction: column;
+            padding: 24px 16px 50px 16px;
+
+            .blog-title {
+                width: 100%;
+            }
+
+            .blog-description {
+                width: 100%;
+            }
+        }
+    }
+}
