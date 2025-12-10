@@ -38,7 +38,7 @@
                 display: flex;
                 justify-content: space-between;
 
-                @include mq(tablet-portrait-up){
+                @include mq(tablet-portrait-up) {
                     flex-direction: column;
                 }
 
@@ -89,4 +89,38 @@
             }
         }
     }
+
+    .related-blogs {
+        padding: 0 50px 50px 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        @include mq(tablet-portrait-up) {
+            padding: 0 16px 24px 16px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+
+        .section-body {
+            .blogs {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+
+                @include mq(tablet-portrait-up) {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+        }
+    }
+
 }

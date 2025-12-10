@@ -21,6 +21,7 @@
 @use './components/inputs/inputWithLabel';
 @use './components/inputs/selectWithLabel';
 @use './components/inputs/textareaWithLabel';
+@use './components/cards/indicators';
 
 // pages
 @use './pages/index';
@@ -30,6 +31,7 @@
 @use './pages/contactUs';
 @use './pages/blogs';
 @use './pages/blogDetails';
+@use './pages/aboutUs';
 
 
 @use './pages/test';
