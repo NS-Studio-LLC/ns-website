@@ -1,3 +1,5 @@
+@use '../../abstracts/mixins' as *;
+
 .hover-button-black {
   padding: 12px;
   border-radius: 6px;
@@ -114,6 +116,17 @@
   }
 }
 
+.hover-button-white, .hover-button-black {
+  @include mq(phone-only) {
+    padding: 8px;
+    .label{
+      font-size: 12px;
+      text-align: center;
+    }
+
+  }
+}
+
 // animations
 
 @keyframes circlePulseBlack {
@@ -131,12 +144,10 @@
     height: 110%;
     left: 0;
     border-radius: 5px;
-    background: linear-gradient(
-      96deg,
-      #60adac -1.27%,
-      #ac5a7e 48%,
-      #bdd9b4 99.19%
-    );
+    background: linear-gradient(96deg,
+        #60adac -1.27%,
+        #ac5a7e 48%,
+        #bdd9b4 99.19%);
   }
 
   100% {
@@ -163,12 +174,10 @@
     height: 110%;
     left: 0;
     border-radius: 5px;
-    background: linear-gradient(
-      96deg,
-      #60adac -1.27%,
-      #ac5a7e 48%,
-      #bdd9b4 99.19%
-    );
+    background: linear-gradient(96deg,
+        #60adac -1.27%,
+        #ac5a7e 48%,
+        #bdd9b4 99.19%);
   }
 
   100% {
