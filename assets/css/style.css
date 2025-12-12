@@ -196,6 +196,8 @@ textarea {
   .footer-container .footer-top .left .actions {
     width: 100%;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 }
 .footer-container .footer-top .left .actions .discover-projects {
